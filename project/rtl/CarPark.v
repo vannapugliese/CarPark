@@ -22,7 +22,11 @@
 
 
 
+<<<<<<< HEAD
 `timescale 1ms / 100us           //DA MODIFICARE
+=======
+`timescale 1ms / 100us           
+>>>>>>> 6937aeffc1100ff188780befe2538bbd7c03ec42
 
 module Parking (  
 
@@ -137,7 +141,11 @@ always @(*) begin //always
 		  #5000 Bin=1'b0; 
 		  NextState <= Busy;
 		  
+<<<<<<< HEAD
 		  //tieni memoria di t di ingresso
+=======
+		  //SAVE ENTRY TIME
+>>>>>>> 6937aeffc1100ff188780befe2538bbd7c03ec42
 		  
 		  end
 		  
@@ -180,7 +188,7 @@ always @(*) begin //always
 		  
 		  end
 
-
+         endcase  //case
 
 
 	end //always
