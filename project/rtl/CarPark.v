@@ -22,7 +22,7 @@
 
 
 
-`timescale 1ms / 100us           //DA MODIFICARE
+`timescale 1ms / 100us           
 
 module Parking (  
 
@@ -137,7 +137,7 @@ always @(*) begin //always
 		  #5000 Bin=1'b0; 
 		  NextState <= Busy;
 		  
-		  //tieni memoria di t di ingresso
+		  //SAVE ENTRY TIME
 		  
 		  end
 		  
