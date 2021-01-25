@@ -13,7 +13,7 @@ output integer T;
 
 
 
-	T = 0; //inizializzo il tempo globale al valore intero 0
+	//T = 0; //inizializzo il tempo globale al valore intero 0
 	
 	
 	

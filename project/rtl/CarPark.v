@@ -22,7 +22,7 @@
 
 
 
-`timescale 1ns / 100ps           //DA MODIFICARE
+`timescale 1ms / 100us           //DA MODIFICARE
 
 module Parking (  
 
@@ -30,7 +30,7 @@ module Parking (
    
    output wire Bin , Bout,          //bars
    
-   output reg P,                    //free parking places  (integer??)
+  // output reg P,                    //free parking places  (integer??)
    
    //output reg [(PMax-3'd1):0] t    //entry time
    
@@ -52,12 +52,16 @@ module Parking (
 	
 	parameter integer PMax=5;
 	
+	//free parking places 
+	
+	integer P;
+	
 	//global time
 	
-	reg T;
+	integer T=0;          //inizialized value fot global tim
+	
 	
 	//Next state logic
-	
 	
 always @(posedge clk ) begin
 
@@ -70,19 +74,24 @@ always @(posedge clk ) begin
 
 
 	end // always 
+	
 
+//global time counter	
 
+always @(posedge clk) begin          
+
+	T = T + 1 ;
+
+	end     //always 
+	
 
 //Combination part
-
-
-
 
 always @(*) begin //always 
 
     Bin=1'b0;
 	Bout=1'b0;
-	
+	//T = 0;                           //inizialization
 	P=PMax;
 	
 	Cost=0;                      //DA RIVEDERE
@@ -95,16 +104,17 @@ always @(*) begin //always
 		  
 		   Bin=1'b0;
 	       Bout=1'b0;
+		   T = 0;                        //start
 		   
-		   Sout=1'b0;
+		   //Sout=1'b0;
 	
 	       P=PMax;
 	
 	       Cost=0;                      //DA RIVEDERE
 		   
 		   if(Sin == 1'b1)
-			    NextState <= Waiting4Enter ;
-				start T Global                  //DA RIVEDERE
+			    NextState <= Waiting4Enter;
+				
 			 else
 			   NextState <= FreePark ;
 		  
@@ -112,21 +122,61 @@ always @(*) begin //always
 		  
 		  Waiting4Enter : begin
 		  
+		   if(P == 0)
+			    NextState <= Waiting4Enter;
+				
+			 else
+			   NextState <= Entry ;
+		  
 		  end
 		  
 		  Entry : begin
+		  
+		  P=P-1;
+		  Bin=1'b1;
+		  #5000 Bin=1'b0; 
+		  NextState <= Busy;
+		  
+		  //tieni memoria di t di ingresso
 		  
 		  end
 		  
 		  Busy : begin
 		  
+		   if(Sin == 1'b1)
+			    NextState <= Waiting4Enter;
+				
+		   else if (Sout == 1'b1)
+                NextState <= Waiting4Exit;			
+				
+			 else
+			   NextState <= Busy ;
+		  
 		  end
 		  
 		  Waiting4Exit : begin
 		  
+		  //CALCULATE AND SHOW PRICE
+		  
+		   if(Pay == 1'b1)
+			    NextState <= Exit;
+				
+			 else
+			   NextState <= Waiting4Exit ;
+		  
 		  end
 		  
 		  Exit : begin
+		  
+		  P=P+1;
+		  Bout=1'b1;
+		  #5000 Bout=1'b0;
+		  
+		   if(P == PMax)
+			    NextState <= FreePark;
+				
+			 else
+			   NextState <= Busy ;
 		  
 		  end
 
