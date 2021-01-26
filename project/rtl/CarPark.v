@@ -28,13 +28,15 @@ module Parking (
 
    input  wire Sin , Sout, Pay ,    // sensors and payment
    
+   
+   
    output wire Bin , Bout,          //bars
    
   // output reg P,                    //free parking places  (integer??)
    
    //output reg [(PMax-3'd1):0] t    //entry time
    
-   output Cost,                      //DA MODIFICARE
+   output wire Cost,                      //DA MODIFICARE
    
    input wire clk , rst
    
@@ -56,9 +58,16 @@ module Parking (
 	
 	integer P;
 	
+	//car codes
+	
+	wire [3:0] code;                 //DA RIVEDERE
+	
+	
+	
 	//global time
 	
-	integer T=0;          //inizialized value fot global tim
+	integer T=0;          //inizialized value for global time
+	integer [PMax-1:0] t;    //entry time     
 	
 	
 	//Next state logic
@@ -93,6 +102,7 @@ always @(*) begin //always
 	Bout=1'b0;
 	//T = 0;                           //inizialization
 	P=PMax;
+	[3:0] code = 4'b0000;
 	
 	Cost=0;                      //DA RIVEDERE
 	
@@ -134,6 +144,8 @@ always @(*) begin //always
 		  
 		  P=P-1;
 		  Bin=1'b1;
+		  t[P]= T;
+		  Codes #(.P(P)) Codes_inst(.code(code))      //assign a code in entry
 		  #5000 Bin=1'b0; 
 		  NextState <= Busy;
 		  
@@ -156,7 +168,20 @@ always @(*) begin //always
 		  
 		  Waiting4Exit : begin
 		  
+		  //WHICH CAR?? IDENTIFICATION
+		  
 		  //CALCULATE AND SHOW PRICE
+		  if(T-t[i]<3600)
+		  Cost=4'd1;
+		  else if (3600<T-t[i] && (T-t[i]<7200)
+		  Cost = 4'd2;
+		  else if (7200<T-t[i] && (T-t[i]<10800)
+		  Cost = 4'd3;
+		  else if (10800<T-t[i] && (T-t[i]<14400)
+		  Cost = 4'd4;
+		  else if (14400<T-t[i])
+		  Cost = 4'd5;
+		  
 		  
 		   if(Pay == 1'b1)
 			    NextState <= Exit;
