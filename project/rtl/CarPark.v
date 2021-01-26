@@ -143,11 +143,11 @@ always @(*) begin //always
 		  
 		  Busy : begin
 		  
-		   if(Sin == 1'b1)
-			    NextState <= Waiting4Enter;
+		   if(Sout == 1'b1)
+			    NextState <= Waiting4Exit;
 				
-		   else if (Sout == 1'b1)
-                NextState <= Waiting4Exit;			
+		   else if (Sin == 1'b1 && Sout==1'b0)
+                NextState <= Waiting4Enter;			
 				
 			 else
 			   NextState <= Busy ;
