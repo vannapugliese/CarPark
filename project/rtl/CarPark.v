@@ -170,6 +170,21 @@ always @(*) begin //always
 		  
 		  //WHICH CAR?? IDENTIFICATION
 		  
+		  integer i;
+		  
+		  integer tin;
+		  
+		  for (i = PMax-1; i > -1 ; i = i - 1) begin
+		  
+		    if (tin==t[i])
+			
+			;
+			
+			else
+			;
+		  
+		  end    // for
+		  
 		  //CALCULATE AND SHOW PRICE
 		  if(T-t[i]<3600)
 		  Cost=4'd1;
