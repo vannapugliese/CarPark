@@ -4,7 +4,7 @@
 
 
 
-module (
+module RAM #(parameter WIDTH = 8, parameter DEPTH = 8)(
 
 	input wire clk,
 	
@@ -20,10 +20,6 @@ module (
 	);
 	
 	
-	
-//parameter WDATA = 8;   
-parameter WIDTH = 8;
-parameter DEPTH = 8;
 
 
 reg [DEPTH-1:0] ram [0:WIDTH-1];  // matrix ram

@@ -24,7 +24,7 @@
 
 `timescale 1ms / 100us           
 
-module Parking (  
+module CarPark (  
 
    input  wire Sin , Sout, Pay ,    // sensors and payment
    

@@ -39,7 +39,7 @@ SHELL := bash
 # By default all rtl/*.v and bench/*.v sources are parsed and compiled using xvlog,
 # then tb_$(dut) is considered as testbench module when xelab is invoked for elaboration.
 #
-dut := SequenceDetector
+dut := CarPark
 
 
 
