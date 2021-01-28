@@ -1,0 +1,8 @@
+0.7
+2020.1
+May 27 2020
+20:09:33
+C:/Users/Vanna/Desktop/CarPark/RAMsim/bench/ClockGen.v,1611851921,systemVerilog,,,,ClockGen,,,,,,,,
+C:/Users/Vanna/Desktop/CarPark/RAMsim/bench/tb_RAMsim.v,1611856509,systemVerilog,,,,tb_RAMsim,,,,,,,,
+C:/Users/Vanna/Desktop/CarPark/RAMsim/cores/RAM_DEPTH128_WIDTH40/RAM_DEPTH128_WIDTH40_sim_netlist.v,1611849734,systemVerilog,,,,RAM_DEPTH128_WIDTH40;RAM_DEPTH128_WIDTH40_blk_mem_gen_generic_cstr;RAM_DEPTH128_WIDTH40_blk_mem_gen_prim_width;RAM_DEPTH128_WIDTH40_blk_mem_gen_prim_wrapper_init;RAM_DEPTH128_WIDTH40_blk_mem_gen_top;RAM_DEPTH128_WIDTH40_blk_mem_gen_v8_4_4;RAM_DEPTH128_WIDTH40_blk_mem_gen_v8_4_4_synth;glbl,,,,,,,,
+C:/Users/Vanna/Desktop/CarPark/RAMsim/rtl/RAMsim.v,1611856328,systemVerilog,,,,RAMsim,,,,,,,,

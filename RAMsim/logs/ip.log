@@ -1,0 +1,46 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Thu Jan 28 16:45:56 2021
+# Process ID: 3304
+# Current directory: C:/Users/Vanna/Desktop/CarPark/RAMsim
+# Command line: vivado.exe -mode gui -source scripts/common/init.tcl -source scripts/common/ip.tcl -notrace -log logs/ip.log -nojournal
+# Log file: C:/Users/Vanna/Desktop/CarPark/RAMsim/logs/ip.log
+# Journal file: 
+#-----------------------------------------------------------
+start_gui
+source scripts/common/init.tcl -notrace
+
+Sourcing init file C:/Users/Vanna/Desktop/CarPark/RAMsim/init.tcl
+
+source scripts/common/ip.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.1/data/ip'.
+create_project: Time (s): cpu = 00:00:22 ; elapsed = 00:00:43 . Memory (MB): peak = 1015.816 ; gain = 0.000
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Vanna/Desktop/CarPark/RAMsim/cores'.
+WARNING: [IP_Flow 19-3656] If you move the project, the path for repository 'c:/Users/Vanna/Desktop/CarPark/RAMsim/cores' may become invalid. A better location for the repository would be in a path adjacent to the project. (Current project location is 'c:/Users/Vanna/Desktop/CarPark/RAMsim/cores/managed_ip_project'.)
+**INFO: Target FPGA set to xc7a35ticsg324-1L
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name RAM_DEPTH128_WIDTH40 -dir c:/Users/Vanna/Desktop/CarPark/RAMsim/cores
+set_property -dict [list CONFIG.Component_Name {RAM_DEPTH128_WIDTH40} CONFIG.Memory_Type {Simple_Dual_Port_RAM} CONFIG.Use_Byte_Write_Enable {false} CONFIG.Byte_Size {9} CONFIG.Assume_Synchronous_Clk {true} CONFIG.Write_Width_A {40} CONFIG.Write_Depth_A {128} CONFIG.Read_Width_A {40} CONFIG.Operating_Mode_A {NO_CHANGE} CONFIG.Write_Width_B {40} CONFIG.Read_Width_B {40} CONFIG.Operating_Mode_B {READ_FIRST} CONFIG.Enable_B {Use_ENB_Pin} CONFIG.Register_PortA_Output_of_Memory_Primitives {false} CONFIG.Register_PortB_Output_of_Memory_Primitives {true} CONFIG.Fill_Remaining_Memory_Locations {true} CONFIG.Use_RSTB_Pin {true} CONFIG.Port_B_Clock {100} CONFIG.Port_B_Write_Rate {0} CONFIG.Port_B_Enable_Rate {100} CONFIG.EN_SAFETY_CKT {true}] [get_ips RAM_DEPTH128_WIDTH40]
+WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'RAM_DEPTH128_WIDTH40' to 'RAM_DEPTH128_WIDTH40' is not allowed and is ignored.
+generate_target {instantiation_template} [get_files c:/Users/Vanna/Desktop/CarPark/RAMsim/cores/RAM_DEPTH128_WIDTH40/RAM_DEPTH128_WIDTH40.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'RAM_DEPTH128_WIDTH40'...
+generate_target all [get_files  c:/Users/Vanna/Desktop/CarPark/RAMsim/cores/RAM_DEPTH128_WIDTH40/RAM_DEPTH128_WIDTH40.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'RAM_DEPTH128_WIDTH40'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'RAM_DEPTH128_WIDTH40'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'RAM_DEPTH128_WIDTH40'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'RAM_DEPTH128_WIDTH40'...
+catch { config_ip_cache -export [get_ips -all RAM_DEPTH128_WIDTH40] }
+export_ip_user_files -of_objects [get_files c:/Users/Vanna/Desktop/CarPark/RAMsim/cores/RAM_DEPTH128_WIDTH40/RAM_DEPTH128_WIDTH40.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] c:/Users/Vanna/Desktop/CarPark/RAMsim/cores/RAM_DEPTH128_WIDTH40/RAM_DEPTH128_WIDTH40.xci]
+launch_runs RAM_DEPTH128_WIDTH40_synth_1 -jobs 2
+[Thu Jan 28 17:00:15 2021] Launched RAM_DEPTH128_WIDTH40_synth_1...
+Run output will be captured here: C:/Users/Vanna/Desktop/CarPark/RAMsim/cores/managed_ip_project/managed_ip_project.runs/RAM_DEPTH128_WIDTH40_synth_1/runme.log
+export_simulation -of_objects [get_files c:/Users/Vanna/Desktop/CarPark/RAMsim/cores/RAM_DEPTH128_WIDTH40/RAM_DEPTH128_WIDTH40.xci] -directory C:/Users/Vanna/Desktop/CarPark/RAMsim/cores/ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Vanna/Desktop/CarPark/RAMsim/cores/ip_user_files -ipstatic_source_dir C:/Users/Vanna/Desktop/CarPark/RAMsim/cores/ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Vanna/Desktop/CarPark/RAMsim/cores/managed_ip_project/managed_ip_project.cache/compile_simlib/modelsim} {questa=C:/Users/Vanna/Desktop/CarPark/RAMsim/cores/managed_ip_project/managed_ip_project.cache/compile_simlib/questa} {riviera=C:/Users/Vanna/Desktop/CarPark/RAMsim/cores/managed_ip_project/managed_ip_project.cache/compile_simlib/riviera} {activehdl=C:/Users/Vanna/Desktop/CarPark/RAMsim/cores/managed_ip_project/managed_ip_project.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Jan 28 17:02:50 2021...

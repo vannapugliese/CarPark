@@ -1,0 +1,2 @@
+RAM_DEPTH128_WIDTH40.v,verilog,xil_defaultlib,../../../../RAM_DEPTH128_WIDTH40/sim/RAM_DEPTH128_WIDTH40.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v
